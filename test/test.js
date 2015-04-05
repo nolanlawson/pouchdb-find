@@ -10,7 +10,8 @@ require('./test-utils');
 
 var cloudantPassword = require('./.cloudant-password');
 
-var  dbs = 'testdb' + Math.random() +
+var dbs = process.env.TEST_DB ||
+  'testdb' + Math.random() +
   ',http://' + cloudantPassword[0] + ':' + cloudantPassword[1] +
   '@' + cloudantPassword[2] + '/testdb' + Math.round(Math.random() * 100000);
 
