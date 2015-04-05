@@ -9,15 +9,11 @@ Right now Mango queries are only supported by Cloudant. So I use a Cloudant acco
 To hook up your own Cloudant account, just run:
 
 ```
-# yes, you need all these environment vars
-export CLOUDANT_HOST=something.cloudant.com
-export CLOUDANT_USERNAME=myusername
-export CLOUDANT_PASSWORD=mypassword
-export COUCH_HOST=http://$CLOUDANT_USERNAME:$CLOUDANT_PASSWORD@$CLOUDANT_HOST
-
-# writes the javascript files we need
+# Write the javascript files we need
 npm run write-cloudant-password
 ```
+
+You will be prompted for your Cloudant account, username, and password, which will be saved in a local .js file.
 
 When it runs in Travis, it uses the credentials for `pouch.cloudant.com`, which is a special database for Pouch stuff donated by Cloudant.
 
