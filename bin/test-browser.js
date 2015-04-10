@@ -92,6 +92,7 @@ function startSelenium(callback) {
         console.error('Failed to start Selenium: ' + err.message);
         process.exit(1);
       }
+
       console.log('Started Selenium: PID %s', server.pid);
       sauceClient = wd.promiseChainRemote();
       callback();
