@@ -39,15 +39,6 @@ if (process.env.GREP) {
 testUrl += '?';
 testUrl += querystring.stringify(qs);
 
-if (process.env.TRAVIS &&
-    client.browser !== 'firefox' &&
-    client.browser !== 'phantomjs' &&
-    process.env.TRAVIS_SECURE_ENV_VARS === 'false') {
-  console.error('Not running test, cannot connect to saucelabs');
-  process.exit(1);
-  return;
-}
-
 function testError(e) {
   console.error(e);
   console.error('Doh, tests failed');
