@@ -3,7 +3,7 @@ node_js:
   - "4.1"
 
 addons:
-  firefox: latest
+  firefox: "41.0.1"
   apt:
     sources:
       - ubuntu-toolchain-r-test
