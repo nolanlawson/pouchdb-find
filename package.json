@@ -62,7 +62,7 @@
     "mkdirp": "^0.5.0",
     "mocha": "~1.18",
     "phantomjs": "^1.9.7-5",
-    "pouchdb": "pouchdb/pouchdb",
+    "pouchdb": "^5.2.0",
     "query-string": "^2.4.2",
     "request": "^2.36.0",
     "sauce-connect-launcher": "^0.4.2",
