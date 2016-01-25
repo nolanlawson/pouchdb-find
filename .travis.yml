@@ -1,41 +1,46 @@
 language: node_js
+
 node_js:
-  - "4.1"
+  - "stable"
+
+services:
+  - docker
+
+git:
+  depth: 30
+
+sudo:
+  false
+
+cache:
+  directories:
+    - /tmp/phantomjs
 
 addons:
   firefox: "41.0.1"
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - build-essential
-      - ca-certificates
-      - curl
-      - git
-      - libicu-dev
-      - libmozjs185-dev
-      - python
-      - g++
-      - g++-4.8
 
 before_install:
-  #haproxy is not on the apt approved list. So manually install
-  - sudo apt-get -y install haproxy
+  # Install CouchDB Master
+  - docker run -d -p 3000:5984 klaemo/couchdb:2.0-dev --with-haproxy --with-admin-party-please -n 1
+
+  # Because Saucelabs doesnt proxy 5984 on OSX
+  - export COUCH_HOST=http://127.0.0.1:3000
 
 script: npm run $COMMAND
 
 before_script:
-    # Install and run CouchDB master for http tests
-  - 'npm run install-couch'
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - "sleep 5"
 
     # Workaround for Selenium #3280 issue
   - "sudo sed -i 's/^127\\.0\\.0\\.1.*$/127.0.0.1 localhost/' /etc/hosts"
+  
+  # Fail early so we dont run hours of saucelabs if we know there
+  # is a lint failure
+  - npm run jshint
 
 after_failure:
-  - "curl -X GET http://127.0.0.1:5984/_log?bytes=1000000"
+  - "curl -X GET http://127.0.0.1:3000/_log?bytes=1000000"
 
 env:
   matrix:
