@@ -1722,8 +1722,8 @@ function find(db, requestDef) {
           if (requestDef.fields) {
             return utils.pick(doc, requestDef.fields);
           }
-        }),
-        total_rows: res.total_rows
+          return doc;
+        })
       };
     });
   });
