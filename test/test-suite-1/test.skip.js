@@ -180,7 +180,7 @@ module.exports = function (dbType, context) {
       });
     });
 
-    it('should work with $and 3, index/no-index skip 0', function () {
+    it.only('should work with $and 3, index/no-index skip 0', function () {
       var db = context.db;
       return db.createIndex({
         "index": {
