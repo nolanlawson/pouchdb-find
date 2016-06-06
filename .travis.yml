@@ -19,7 +19,6 @@ before_install:
   - "while [ '200' != $(curl -s -o /dev/null -w \"%{http_code}\" 127.0.0.1:5984) ]; do echo waiting for couch to load... ; sleep 1; done"
   # ./node_modules/.bin/add-cors-to-couchdb
   - ./bin/enable-couchdb-cors.sh
-  - ./bin/enable-couchdb-cors.sh
 
 script: npm run $COMMAND
 
