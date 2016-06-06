@@ -44,6 +44,7 @@
     "lie": "^2.6.0",
     "pouchdb-collate": "^1.2.0",
     "pouchdb-extend": "^0.1.2",
+    "pouchdb-promise": "^5.4.0",
     "pouchdb-upsert": "^1.1.0",
     "spark-md5": "0.0.5"
   },
@@ -63,7 +64,7 @@
     "mkdirp": "^0.5.0",
     "mocha": "^2.4.5",
     "phantomjs": "^1.9.7-5",
-    "pouchdb": "^5.2.0",
+    "pouchdb": "^5.4.0",
     "query-string": "^2.4.2",
     "request": "^2.36.0",
     "sauce-connect-launcher": "^0.14.0",
