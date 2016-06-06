@@ -15,9 +15,10 @@ addons:
 before_install:
   # Install CouchDB Master
   - docker run -d -p 5984:5984 klaemo/couchdb:2.0-dev --with-haproxy --with-admin-party-please -n 1
-  - npm install add-cors-to-couchdb
+  # npm install add-cors-to-couchdb
   - "while [ '200' != $(curl -s -o /dev/null -w \"%{http_code}\" 127.0.0.1:5984) ]; do echo waiting for couch to load... ; sleep 1; done"
-  - ./node_modules/.bin/add-cors-to-couchdb
+  # ./node_modules/.bin/add-cors-to-couchdb
+  - ./bin/enable-couchdb-cors.sh
 
 script: npm run $COMMAND
 
