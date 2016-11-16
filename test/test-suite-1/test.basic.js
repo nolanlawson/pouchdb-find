@@ -46,7 +46,7 @@ module.exports = function (dbType, context) {
       }).then(function (response) {
         response.id.should.match(/^_design\//);
         response.name.should.equal('foo-index');
-        //response.result.should.equal('exists');
+        response.result.should.equal('exists');
         return response.id;
       }).then(function (ddocId) {
         return db.get(ddocId);
