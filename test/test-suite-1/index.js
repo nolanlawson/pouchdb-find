@@ -51,5 +51,6 @@ module.exports = function (dbName, dbType, Pouch) {
     require('./test.issue66')(dbType, context);
     require('./test.and')(dbType, context);
     require('./test.default-index')(dbType, context);
+    require('./test.ltgt-limit')(dbType, context);
   });
 };
