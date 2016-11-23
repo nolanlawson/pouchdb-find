@@ -3,6 +3,34 @@
 module.exports = function (dbType, context) {
 
   describe(dbType + ': ltgt with limit', function () {
+    it('gt query return correct number of docs', function () {
+      var db = context.db;
+      var index = {
+        "index": {
+          "fields": ["number"]
+        },
+        "name": "number-index",
+        "type": "json"
+      };
+
+      return db.createIndex(index).then(function () {
+        return db.bulkDocs([
+          { _id: '0', number: 0 },
+          { _id: '1', number: 1 }
+        ]);
+      }).then(function () {
+        return db.find({
+          selector: { number: { $gt: -1 } },
+          limit: 1
+        });
+      }).then(function (resp) {
+        var docs = resp.docs.map(function (x) { delete x._rev; return x; });
+        docs.should.deep.equal([
+          { _id: '0', number: 0 }
+        ]);
+      });
+    });
+
     it('#20 - lt queries with sort descending return correct number of docs', function () {
       var db = context.db;
       var index = {
