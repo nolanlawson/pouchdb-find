@@ -283,7 +283,7 @@ module.exports = function (dbType, context) {
     });
   });
 
-  it.skip('handles just regex selector', function () {
+  it('handles just regex selector', function () {
     var db = context.db;
       return db.bulkDocs([
         {_id: '1', foo: 1},
@@ -293,7 +293,7 @@ module.exports = function (dbType, context) {
       ]).then(function () {
       return db.find({
         selector: {
-          _id: {$regex: /1/}
+          _id: {$regex: "1"}
         },
         fields: ['_id']
       }).then(function (resp) {
