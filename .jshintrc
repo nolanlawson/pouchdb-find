@@ -28,6 +28,7 @@
     "afterEach",
     "it",
     "emit",
-    "-Promise"
+    "-Promise",
+    "self"
   ]
 }
