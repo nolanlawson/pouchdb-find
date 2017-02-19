@@ -7,7 +7,7 @@ Provides a simple, [MongoDB-inspired](https://github.com/cloudant/mango) query l
 
 Eventually this will replace PouchDB's map/reduce API entirely. You'll still be able to use map/reduce, but it will be distributed as a separate plugin.
 
-**Warning: this is beta software! It may change at anytime and could be unstable.**
+_**Note:** we are in the process of [moving this repo into the PouchDB monorepo](https://github.com/pouchdb/pouchdb/issues/6289). Please submit new issues/PRs to [the PouchDB repo](http://github.com/pouchdb/pouchdb/) rather than here._
 
 Status
 ---
