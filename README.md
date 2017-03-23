@@ -1,3 +1,8 @@
+⚠️ NOTE ⚠️: this project has moved to [the PouchDB GitHub repo](http://github.com/pouchdb/pouchdb/). Please submit new issues/PRs there!
+====
+
+The `pouchdb-find` plugin is being incorporated into PouchDB itself. Original documentation follows:
+
 PouchDB Find [![Build Status](https://travis-ci.org/nolanlawson/pouchdb-find.svg)](https://travis-ci.org/nolanlawson/pouchdb-find) [![Coverage Status](https://coveralls.io/repos/nolanlawson/pouchdb-find/badge.svg?branch=master&service=github)](https://coveralls.io/github/nolanlawson/pouchdb-find?branch=master)
 =====
 
@@ -6,8 +11,6 @@ PouchDB Find [![Build Status](https://travis-ci.org/nolanlawson/pouchdb-find.svg
 Provides a simple, [MongoDB-inspired](https://github.com/cloudant/mango) query language that accomplishes the same thing as the [map/reduce API](http://pouchdb.com/api.html#query_database), but with far less code.
 
 Eventually this will replace PouchDB's map/reduce API entirely. You'll still be able to use map/reduce, but it will be distributed as a separate plugin.
-
-_**Note:** we are in the process of [moving this repo into the PouchDB monorepo](https://github.com/pouchdb/pouchdb/issues/6289). Please submit new issues/PRs to [the PouchDB repo](http://github.com/pouchdb/pouchdb/) rather than here._
 
 Status
 ---
