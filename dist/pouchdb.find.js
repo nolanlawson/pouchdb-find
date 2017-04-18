@@ -1619,7 +1619,7 @@ function find(db, requestDef) {
     if ('startkey' in opts && 'endkey' in opts &&
         collate(opts.startkey, opts.endkey) > 0) {
       // can't possibly return any results, startkey > endkey
-      return {docs: []};
+      return {docs: [], total_rows: 0};
     }
 
     var isDescending = requestDef.sort &&
@@ -1670,7 +1670,8 @@ function find(db, requestDef) {
             return utils.pick(doc, requestDef.fields);
           }
           return doc;
-        })
+        }),
+        total_rows: res.total_rows
       };
 
       if (indexToUse.defaultUsed) {
